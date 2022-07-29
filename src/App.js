@@ -6,22 +6,27 @@ class Lottery extends Component {
     oldNumbers: [],
     newNumbers: []
   }
+  m = 1
   randomNumbers = () => {
-    this.setState({
-      oldNumber: [...this.state.oldNumbers, ...this.state.newNumbers]
-    })
-    this.state.newNumbers =  [];
-    for (let i = 0; i < 5; i++) {
-      let number = Math.floor(5 - 0.5 + Math.random() * (36 - 5 + 1));
-      console.log(number)
-      if (this.state.oldNumbers.includes(number)) {
-        i--
-      } else {
-        this.state.newNumbers.push(number)
+    if (this.m != 0) {
+      this.state.newNumbers =  [];
+      for (let i = 0; i < 5; i++) {
+        let number = Math.floor(5 - 0.5 + Math.random() * (36 - 5 + 1));
+        console.log(number)
+        if (this.state.oldNumbers.includes(number)) {
+          this.m++
+          i--
+        } else if (this.m >= 10) {
+          this.m = 0
+        } else {
+          this.state.oldNumbers.push(number);
+          this.state.newNumbers.push(number);
+          this.setState(this)
+        }
       }
+      console.log(this.state.oldNumbers)
+      console.log(this.state.newNumbers)
     }
-    console.log(this.state.oldNumbers)
-    console.log(this.state.newNumbers)
   }
   render() {
     return (
