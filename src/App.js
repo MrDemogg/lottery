@@ -4,7 +4,8 @@ import './App.css';
 class Lottery extends Component {
   state = {
     oldNumbers: [],
-    newNumbers: []
+    newNumbers: [],
+    message: ""
   }
   m = 1
   randomNumbers = () => {
@@ -26,6 +27,11 @@ class Lottery extends Component {
       }
       console.log(this.state.oldNumbers)
       console.log(this.state.newNumbers)
+    } else {
+      this.setState({
+        newNumbers: "",
+        message: "числа в лоттерее закончились!"
+      })
     }
   }
   render() {
@@ -41,6 +47,7 @@ class Lottery extends Component {
           <div className="lottery__lot">{this.state.newNumbers[3]}</div>
           <div className="lottery__lot">{this.state.newNumbers[4]}</div>
         </div>
+        <div className='lottery__message'>{this.state.message}</div>
       </div>
     )
   }

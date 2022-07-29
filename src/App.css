@@ -1,0 +1,37 @@
+@font-face {
+  font-family: 'sans';
+  src: url(Comic\ Sans\ MS\ Pixel.ttf);
+}
+* {
+  font-family: 'sans'
+}
+.lottery__button button {
+  background: white;
+  box-shadow: 4px 4px 1px 1px #000;
+  width: 320px;
+  height: 100px;
+  font-size: 60px;
+}
+.lottery__button button:hover {
+  box-shadow: none;
+  transform: translate(4px, 4px);
+}
+.lottery {
+  position: relative;
+  top: 100px;
+  margin: 0 auto;
+  width: 320px
+}
+.lottery__message, .lottery__lots {
+  display: flex;
+  position: relative;
+  top: 50px;
+  justify-content: space-between;
+}
+.lottery__message {
+  justify-content: center;
+  font-size: 25px
+}
+.lottery__lot {
+  font-size: 40px;
+}
